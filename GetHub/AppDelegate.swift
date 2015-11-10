@@ -20,9 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return true
 	}
 
+	// Once the user granted us access to Github will send back a url with the request token using our Applications URI Scheme. 
 	func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
 		return true
 	}
+	
+//	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+//		OAuthClient.shared.exchangeCodeInURL(url)
+//		return true
+//	}
 
 }
 

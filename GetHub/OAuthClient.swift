@@ -10,35 +10,38 @@ import UIKit
 
 let KTokenKey = "KTokenKey"
 
-
-
 class OAuthClient {
 	
+	// Create a Singleton 
 	static let shared = OAuthClient()
 	
-//	Setup your Github client id and your client secret first.
+// Lets create a function to request a Token from github. 
 	func requestGithubAccess() {
-		if let authURL = NSURL(string: "\(kOAuthBaseURL)?client_id=\(githubClientId)&redirect_uri=githubclient://&scope=user,repo") {
+		if let authURL = NSURL(string: "\(kOAuthBaseURL)?client_id=\(githubClientId)&scope=user,repo") {
 			UIApplication.sharedApplication().openURL(authURL)
 		}
 	}
-	
+/* Now to turn that request token into our access token lets create another function to handle the response from Github
+	once the user grants our application access */
+	// since the only item in the query in the url is the request token we can get that code by calling .query on url.
 	func exchangeCodeInURL(codeURL: NSURL) {
+		// Create the request to pass back to Github to get the access token.
 		if let code = codeURL.query {
-			let request = NSMutableURLRequest(URL: NSURL(string: "https://github.com/login/oauth/access_token?\(code)&client_id=\(githubClientId)&client_secret=\(githubClientSecret)")!)
+			let request = NSMutableURLRequest(URL: NSURL(string: "https://github.com/login/oauth/access_token?client_id=\(githubClientId)&client_secret=\(githubClientSecret)&\(code)")!)
+			
 			
 			request.HTTPMethod = "POST"
 			
 			request.setValue("application/json", forHTTPHeaderField: "Accept")
 			
-			
 			NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
 				if let httpResponse = response as? NSHTTPURLResponse {
 					if httpResponse.statusCode == 200 && data != nil {
+						
 						do {
 							if let rootObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? [String : AnyObject] {
 								guard let token = rootObject["access_token"] as? String else {return}
-							
+								
 								NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
 									NSUserDefaults.standardUserDefaults().setObject(token, forKey: KTokenKey)
 									NSUserDefaults.standardUserDefaults().synchronize()
@@ -53,6 +56,7 @@ class OAuthClient {
 		}
 	}
 	
+	// Save to token to NSUserDeafults
 	func token() -> String? {
 		guard let token = NSUserDefaults.standardUserDefaults().stringForKey(KTokenKey) else {return nil}
 		

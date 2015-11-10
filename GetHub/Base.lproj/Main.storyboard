@@ -25,17 +25,28 @@
                                     <action selector="requestToken:" destination="BYZ-38-t0r" eventType="touchUpInside" id="skY-2T-LJa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6H-qb-EoF">
+                                <rect key="frame" x="261" y="503" width="78" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Print Token"/>
+                                <connections>
+                                    <action selector="printToken:" destination="BYZ-38-t0r" eventType="touchUpInside" id="30W-Wk-ghn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="C6H-qb-EoF" secondAttribute="bottom" constant="67" id="Icr-vC-Bru"/>
                             <constraint firstItem="GTr-OL-xue" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZQQ-rX-KLr"/>
+                            <constraint firstItem="C6H-qb-EoF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cog-LZ-2hW"/>
                             <constraint firstItem="GTr-OL-xue" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z1h-Sp-7W5"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="324" y="387"/>
         </scene>
     </scenes>
 </document>

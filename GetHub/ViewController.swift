@@ -16,6 +16,12 @@ class ViewController: UIViewController {
 	
 	}
 	
+	@IBAction func printToken (sender: UIButton) {
+	
+		print(OAuthClient.shared.token())
+	
+	}
+	
 	
 	
 	override func viewDidLoad() {
