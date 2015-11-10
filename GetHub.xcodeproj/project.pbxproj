@@ -14,6 +14,8 @@
 		30294FC11BF146AF006E6434 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30294FBF1BF146AF006E6434 /* LaunchScreen.storyboard */; };
 		30294FCC1BF146AF006E6434 /* GetHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30294FCB1BF146AF006E6434 /* GetHubTests.swift */; };
 		30294FD71BF146B0006E6434 /* GetHubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30294FD61BF146B0006E6434 /* GetHubUITests.swift */; };
+		30294FE81BF14C9E006E6434 /* OAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30294FE71BF14C9E006E6434 /* OAuthClient.swift */; };
+		30294FEA1BF15265006E6434 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30294FE91BF15265006E6434 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		30294FD21BF146B0006E6434 /* GetHubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetHubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30294FD61BF146B0006E6434 /* GetHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHubUITests.swift; sourceTree = "<group>"; };
 		30294FD81BF146B0006E6434 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30294FE71BF14C9E006E6434 /* OAuthClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthClient.swift; sourceTree = "<group>"; };
+		30294FE91BF15265006E6434 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +101,10 @@
 		30294FB51BF146AF006E6434 /* GetHub */ = {
 			isa = PBXGroup;
 			children = (
+				30294FE61BF146F7006E6434 /* Controller */,
+				30294FE51BF146E3006E6434 /* View */,
+				30294FE41BF146C0006E6434 /* Model */,
 				30294FB61BF146AF006E6434 /* AppDelegate.swift */,
-				30294FB81BF146AF006E6434 /* ViewController.swift */,
-				30294FBA1BF146AF006E6434 /* Main.storyboard */,
 				30294FBD1BF146AF006E6434 /* Assets.xcassets */,
 				30294FBF1BF146AF006E6434 /* LaunchScreen.storyboard */,
 				30294FC21BF146AF006E6434 /* Info.plist */,
@@ -123,6 +128,31 @@
 				30294FD81BF146B0006E6434 /* Info.plist */,
 			);
 			path = GetHubUITests;
+			sourceTree = "<group>";
+		};
+		30294FE41BF146C0006E6434 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30294FE71BF14C9E006E6434 /* OAuthClient.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		30294FE51BF146E3006E6434 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30294FBA1BF146AF006E6434 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		30294FE61BF146F7006E6434 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				30294FB81BF146AF006E6434 /* ViewController.swift */,
+				30294FE91BF15265006E6434 /* Constants.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30294FE81BF14C9E006E6434 /* OAuthClient.swift in Sources */,
 				30294FB91BF146AF006E6434 /* ViewController.swift in Sources */,
 				30294FB71BF146AF006E6434 /* AppDelegate.swift in Sources */,
+				30294FEA1BF15265006E6434 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GetHub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.romansalazar.GetHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,6 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GetHub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.romansalazar.GetHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
