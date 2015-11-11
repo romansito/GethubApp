@@ -19,6 +19,10 @@ class ViewController: UIViewController {
 	@IBAction func printToken (sender: UIButton) {
 	
 		print(OAuthClient.shared.token())
+		
+		GithubService.getRepositories { (success, json) -> () in
+			//
+		}
 	
 	}
 	
