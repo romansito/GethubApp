@@ -24,7 +24,7 @@ class OAuthClient {
 /* Now to turn that request token into our access token lets create another function to handle the response from Github
 	once the user grants our application access */
 	// since the only item in the query in the url is the request token we can get that code by calling .query on url.
-	func exchangeCodeInURL(codeURL: NSURL) {
+	func exchangeCodeInURL(codeURL: NSURL, completion: (success: Bool) -> ()) {
 		// Create the request to pass back to Github to get the access token.
 		if let code = codeURL.query {
 			let request = NSMutableURLRequest(URL: NSURL(string: "https://github.com/login/oauth/access_token?client_id=\(githubClientId)&client_secret=\(githubClientSecret)&\(code)")!)
@@ -43,8 +43,8 @@ class OAuthClient {
 								guard let token = rootObject["access_token"] as? String else {return}
 								
 								NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-									NSUserDefaults.standardUserDefaults().setObject(token, forKey: KTokenKey)
-									NSUserDefaults.standardUserDefaults().synchronize()
+									KeychainService.save(token)
+									completion(success: true)
 								})
 						}
 						} catch let error as NSError {
@@ -58,9 +58,9 @@ class OAuthClient {
 	
 	// Save to token to NSUserDeafults
 	func token() -> String? {
-		guard let token = NSUserDefaults.standardUserDefaults().stringForKey(KTokenKey) else {return nil}
+		guard let token = KeychainService.loadFromKeychain() else { return nil}
 		
-		return token
+		return token as String
 	}
 }
 

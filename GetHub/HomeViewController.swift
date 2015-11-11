@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
 	@IBAction func requestToken(sender: UIButton) {
 		
 		OAuthClient.shared.requestGithubAccess()
+
+			}
 	
-	}
+	
+
 	
 	@IBAction func printToken (sender: UIButton) {
 	

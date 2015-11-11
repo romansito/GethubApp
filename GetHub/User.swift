@@ -8,9 +8,3 @@
 
 import Foundation
 
-
-class User {
-	
-	
-	
-}
