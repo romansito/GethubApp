@@ -22,6 +22,7 @@
 		30F7CBBB1BF2B84A009D5CD8 /* Repository .swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBBA1BF2B84A009D5CD8 /* Repository .swift */; };
 		30F7CBBF1BF2DBF2009D5CD8 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBBE1BF2DBF2009D5CD8 /* OAuthViewController.swift */; };
 		30F7CBC11BF314DA009D5CD8 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBC01BF314DA009D5CD8 /* KeychainService.swift */; };
+		30F7CBC31BF40622009D5CD8 /* CreateRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBC21BF40622009D5CD8 /* CreateRepo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		30F7CBBA1BF2B84A009D5CD8 /* Repository .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Repository .swift"; sourceTree = "<group>"; };
 		30F7CBBE1BF2DBF2009D5CD8 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		30F7CBC01BF314DA009D5CD8 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		30F7CBC21BF40622009D5CD8 /* CreateRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRepo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				30F7CBB81BF2B82F009D5CD8 /* Owner.swift */,
 				30F7CBBA1BF2B84A009D5CD8 /* Repository .swift */,
 				30F7CBC01BF314DA009D5CD8 /* KeychainService.swift */,
+				30F7CBC21BF40622009D5CD8 /* CreateRepo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				30F7CBBB1BF2B84A009D5CD8 /* Repository .swift in Sources */,
 				30294FB71BF146AF006E6434 /* AppDelegate.swift in Sources */,
 				30F7CBB51BF29CA4009D5CD8 /* GithubService.swift in Sources */,
+				30F7CBC31BF40622009D5CD8 /* CreateRepo.swift in Sources */,
 				30294FEA1BF15265006E6434 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
