@@ -10,40 +10,56 @@ import Foundation
 
 class CreateRepo {
 	
-/*
-Steps to create a new Repository 
-1. Create a dictionary. 
-2. Creat the massege or request.
-3. Make sure its running on the main thread. 
-*/
-	class func createNewRepo(name: String, homepage: String, description: String?) {
-		do {
-			guard let token = KeychainService.loadFromKeychain() else { return }
-			guard let url = NSURL(string: "\(kOAuthBaseURL)/user/repos?access_token=\(token)") else { return }
-		let request = NSMutableURLRequest(URL: url)
-		request.HTTPMethod = "POST"
-		var parameters = [String : String]()
-		parameters["name"] = name
-		if let description = description {
-			parameters["description"] = description
-		}
-		request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(parameters, options: NSJSONWritingOptions.PrettyPrinted) as NSData
-		NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-			if let _ = response as? NSHTTPURLResponse {
-				//
+	/*
+	Steps to create a new Repository
+	Create a token,
+	create a url
+	create a diccionary with paramenters
+	let body = NSSerialization
+	create resquest.
+	*/
+	
+
+	
+	class func createNewRepo(name: String, description: String?, completion:(success: Bool, error: String?, statusCode: Int?) -> ()  ) {
+		if let token = OAuthClient.shared.token() {
+			if let url = NSURL(string: "https://api.github.com/user/repos?access_token=\(token)") {
+				
+				let request = NSMutableURLRequest(URL: url)
+				request.HTTPMethod = "POST"
+				
+				do {
+
+					request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(["name":name], options: NSJSONWritingOptions.PrettyPrinted)
+					
+					NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+						
+						if let error = error {
+							print(error)
+						}
+						
+						if let data = data {
+							do {
+								
+								let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)
+								print(json)
+								print(response)
+								
+							} catch {}
+						}
+						
+					}).resume()
+					
+				} catch let error {
+					print(error)
+				}
 			}
-			if let _ = error {
-				print("error on your createRepo")
-			}
-			if let data = data {
-				print(data)
-			}
-			}.resume()
 			
-		} catch {}
+		}
+		
 	}
-
-
+	
+	
 }
 
 

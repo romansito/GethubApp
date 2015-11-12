@@ -46,14 +46,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //	 check for Authorization
 	
 	func lookForToken() {
-		if let homeViewController = self.window?.rootViewController as? HomeViewController, storyboard = homeViewController.storyboard {
-			if let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController {
-				homeViewController.addChildViewController(oauthViewController)
-				homeViewController.view.addSubview(oauthViewController.view)
-				oauthViewController.didMoveToParentViewController(homeViewController)
-				self.oauthViewController = oauthViewController
+		
+		if let _ = OAuthClient.shared.token() {
+			
+		} else {
+			
+			if let homeViewController = self.window?.rootViewController as? HomeViewController, storyboard = homeViewController.storyboard {
+				if let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController {
+					homeViewController.addChildViewController(oauthViewController)
+					homeViewController.view.addSubview(oauthViewController.view)
+					oauthViewController.didMoveToParentViewController(homeViewController)
+					self.oauthViewController = oauthViewController
+				}
 			}
+			
 		}
+		
 	}
 
 	

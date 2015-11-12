@@ -17,7 +17,7 @@ class OAuthClient {
 	
 // Lets create a function to request a Token from github. 
 	func requestGithubAccess() {
-		if let authURL = NSURL(string: "\(kOAuthBaseURL)?client_id=\(githubClientId)&scope=user,repo") {
+		if let authURL = NSURL(string: "https://github.com/login/oauth/authorize?client_id=\(githubClientId)&scope=user,repo") {
 			UIApplication.sharedApplication().openURL(authURL)
 		}
 	}

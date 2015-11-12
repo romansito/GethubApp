@@ -9,31 +9,22 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-	@IBAction func requestToken(sender: UIButton) {
-		
-		OAuthClient.shared.requestGithubAccess()
-
-			}
-	
-	
-
-	
-	@IBAction func printToken (sender: UIButton) {
-	
-		print(OAuthClient.shared.token())
-		
-		GithubService.getRepositories { (success, json) -> () in
-			//
-		}
-	
-	}
 	
 	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		//
+		
+		CreateRepo.createNewRepo("New Cool Repo 2", description: "Test repo from Gethub app") { (success, error, statusCode) -> () in
+			print("call completion handler for createNewRepo")
+			if success == true {
+				print("yaya")
+			} else {
+				guard let error = error else { return }
+				guard let status = statusCode else { return }
+				print("You got an error\(error), with statusCode\(statusCode)")
+			}
+		}
 	}
 
 	override func didReceiveMemoryWarning() {
