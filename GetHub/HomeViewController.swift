@@ -8,32 +8,99 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
+	@IBOutlet weak var tableView: UITableView!
+	
+	
+	
+	var repositories = [Repository]() {
+		didSet {
+			self.tableView.reloadData()
+		}
+	}
 	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.update()
+
 		
-		CreateRepo.createNewRepo("New Cool Repo 2", description: "Test repo from Gethub app") { (success, error, statusCode) -> () in
+		CreateRepo.createNewRepo("New Cool Repo 3", description: "Test repo from Gethub app") { (success, error, statusCode) -> () in
 			print("call completion handler for createNewRepo")
 			if success == true {
 				print("yaya")
 			} else {
 				guard let error = error else { return }
-				guard let status = statusCode else { return }
+				guard let _ = statusCode else { return }
 				print("You got an error\(error), with statusCode\(statusCode)")
 			}
 		}
 	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		//
+	
+	func update() {
+		
+		if let token = OAuthClient.shared.token() {
+			
+			let url = NSURL(string: "https://api.github.com/user/repos?access_token=\(token)")!
+			
+			let request = NSMutableURLRequest(URL: url)
+			request.setValue("application/json", forHTTPHeaderField: "Accept")
+			
+			NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+				
+				if let error = error {
+					print(error)
+				}
+				
+				if let data = data {
+					if let arraysOfRepoDictionaries = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [[String : AnyObject]] {
+						
+						var repositories = [Repository]()
+						
+						for eachRepository in arraysOfRepoDictionaries {
+							
+							let name = eachRepository["name"] as? String
+							let id = eachRepository["id"] as? Int
+							
+							
+							if let name = name, id = id {
+								let repo = Repository(name: name, id: id)
+								repositories.append(repo)
+							}
+						}
+						
+						// This is because NSURLSession comes back on a background q.
+						NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+							self.repositories = repositories
+						})
+					}
+				}
+			
+				}.resume()
+		}
 	}
-
-
+		
+	
+	// MARK: UITableViewDataSource
+	
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return self.repositories.count
+	}
+	
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		
+		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+		let repository = self.repositories[indexPath.row]
+		
+		cell.textLabel?.text = repository.name
+		
+		return cell
+		
+	}
+	
+	
+	
 	
 	
 }
-

@@ -23,6 +23,8 @@
 		30F7CBBF1BF2DBF2009D5CD8 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBBE1BF2DBF2009D5CD8 /* OAuthViewController.swift */; };
 		30F7CBC11BF314DA009D5CD8 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBC01BF314DA009D5CD8 /* KeychainService.swift */; };
 		30F7CBC31BF40622009D5CD8 /* CreateRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBC21BF40622009D5CD8 /* CreateRepo.swift */; };
+		30F7CBC51BF597EE009D5CD8 /* GitHub-Mark-Light-32px.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F7CBC41BF597EE009D5CD8 /* GitHub-Mark-Light-32px.png */; };
+		30F7CBC71BF59816009D5CD8 /* GitHub-Mark-32px.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F7CBC61BF59816009D5CD8 /* GitHub-Mark-32px.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		30F7CBBE1BF2DBF2009D5CD8 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		30F7CBC01BF314DA009D5CD8 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		30F7CBC21BF40622009D5CD8 /* CreateRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRepo.swift; sourceTree = "<group>"; };
+		30F7CBC41BF597EE009D5CD8 /* GitHub-Mark-Light-32px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GitHub-Mark-Light-32px.png"; sourceTree = "<group>"; };
+		30F7CBC61BF59816009D5CD8 /* GitHub-Mark-32px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GitHub-Mark-32px.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 				30294FE51BF146E3006E6434 /* View */,
 				30294FE41BF146C0006E6434 /* Model */,
 				30294FBD1BF146AF006E6434 /* Assets.xcassets */,
+				30F7CBC61BF59816009D5CD8 /* GitHub-Mark-32px.png */,
+				30F7CBC41BF597EE009D5CD8 /* GitHub-Mark-Light-32px.png */,
 				30294FBF1BF146AF006E6434 /* LaunchScreen.storyboard */,
 				30294FC21BF146AF006E6434 /* Info.plist */,
 				30F7CBB41BF29CA4009D5CD8 /* GithubService.swift */,
@@ -284,8 +290,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				30294FC11BF146AF006E6434 /* LaunchScreen.storyboard in Resources */,
+				30F7CBC71BF59816009D5CD8 /* GitHub-Mark-32px.png in Resources */,
 				30294FBE1BF146AF006E6434 /* Assets.xcassets in Resources */,
 				30294FBC1BF146AF006E6434 /* Main.storyboard in Resources */,
+				30F7CBC51BF597EE009D5CD8 /* GitHub-Mark-Light-32px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
