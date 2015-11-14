@@ -19,6 +19,10 @@ class SearchUserViewController: UIViewController, UISearchBarDelegate, UICollect
 		}
 	}
 	
+	class func identifier() -> String {
+		return "SearchUserViewController"
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
@@ -80,6 +84,8 @@ class SearchUserViewController: UIViewController, UISearchBarDelegate, UICollect
 		let searchTerm = searchUserBar.text
 		if let searchTerm = searchTerm {
 			self.update(searchTerm)
+			print("search works")
+			
 		}
 	}
 
@@ -101,7 +107,7 @@ class SearchUserViewController: UIViewController, UISearchBarDelegate, UICollect
 		if let token = OAuthClient.shared.token() {
 			
 			let url = NSURL(string: "https://api.github.com/search/users?access_token=\(token)&q=\(searchTerm)")!
-			
+			print("\(url)")
 			let request = NSMutableURLRequest(URL: url)
 			request.setValue("application/json", forHTTPHeaderField: "Accept")
 			
@@ -125,14 +131,17 @@ class SearchUserViewController: UIViewController, UISearchBarDelegate, UICollect
 								
 								
 								if let login = login, avatarURL = avatarURL {
-									let user = User(login: login, avatarURL: avatarURL)
-									users.append(user)
+									
+									users.append(User(login: login, avatarURL: avatarURL))
+									
+//									let user = User(login: login, avatarURL: avatarURL)
+//									users.append(user)
 								}
 							}
 							
 							// This is because NSURLSession comes back on a background q.
 							NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-								self.users = self.users
+								self.users = users
 							})
 						}
 					}
@@ -145,4 +154,21 @@ class SearchUserViewController: UIViewController, UISearchBarDelegate, UICollect
 		}
 
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
