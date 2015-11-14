@@ -12,6 +12,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	
 	@IBOutlet weak var tableView: UITableView!
 	
+	@IBOutlet weak var searchBar: UISearchBar!
 	
 	
 	var repositories = [Repository]() {
@@ -24,7 +25,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.update()
-
+		
 		
 		CreateRepo.createNewRepo("New Cool Repo 3", description: "Test repo from Gethub app") { (success, error, statusCode) -> () in
 			print("call completion handler for createNewRepo")
@@ -61,11 +62,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 						for eachRepository in arraysOfRepoDictionaries {
 							
 							let name = eachRepository["name"] as? String
+							let description = eachRepository["description"] as? String
 							let id = eachRepository["id"] as? Int
+//							let description = eachRepository["description"] as? String?
 							
 							
-							if let name = name, id = id {
-								let repo = Repository(name: name, id: id)
+							if let name = name, description = description, id = id {
+								let repo = Repository(name: name, description: description, id: id)
 								repositories.append(repo)
 							}
 						}
@@ -76,11 +79,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 						})
 					}
 				}
-			
+				
 				}.resume()
 		}
 	}
-		
+	
+	
+	
+	
+	
+	
 	
 	// MARK: UITableViewDataSource
 	
@@ -94,6 +102,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 		let repository = self.repositories[indexPath.row]
 		
 		cell.textLabel?.text = repository.name
+//		cell.textLabel?.text = repository.description
+//		cell.textLabel?.text = repository.\"(id)"
 		
 		return cell
 		

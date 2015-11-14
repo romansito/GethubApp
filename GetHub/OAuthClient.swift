@@ -29,7 +29,6 @@ class OAuthClient {
 		if let code = codeURL.query {
 			let request = NSMutableURLRequest(URL: NSURL(string: "https://github.com/login/oauth/access_token?client_id=\(githubClientId)&client_secret=\(githubClientSecret)&\(code)")!)
 			
-			
 			request.HTTPMethod = "POST"
 			
 			request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -37,7 +36,6 @@ class OAuthClient {
 			NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
 				if let httpResponse = response as? NSHTTPURLResponse {
 					if httpResponse.statusCode == 200 && data != nil {
-						
 						do {
 							if let rootObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? [String : AnyObject] {
 								guard let token = rootObject["access_token"] as? String else {return}

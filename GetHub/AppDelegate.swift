@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			
 		} else {
 			
-			if let homeViewController = self.window?.rootViewController as? HomeViewController, storyboard = homeViewController.storyboard {
+			if let homeViewController = self.window?.rootViewController as? UITabBarController, storyboard = homeViewController.storyboard {
 				if let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController {
 					homeViewController.addChildViewController(oauthViewController)
 					homeViewController.view.addSubview(oauthViewController.view)

@@ -10,15 +10,14 @@ import Foundation
 
 class Repository {
 	
-//	let owner : String
-	let name : String
-//	let language : String
-	let id : Int
+	let name: String
+	let description: String?
+	let id: Int
 	
-	init(name: String, id: Int) {
-//		self.owner = owner
+	init(name: String, description: String?, id: Int) {
 		self.name = name
-//		self.language = language
+		self.description = description
 		self.id = id
+		
 	}
 }

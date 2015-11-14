@@ -53,6 +53,7 @@ class KeychainService: NSObject {
 		let status: OSStatus = SecItemCopyMatching(keychainQuery, &dataTypeRef)
 		
 		var contentsOfKeychain: NSString?
+		print(contentsOfKeychain)
 		
 		if let retainedData = dataTypeRef as? NSData {
 			contentsOfKeychain = NSString(data: retainedData, encoding: NSUTF8StringEncoding)
