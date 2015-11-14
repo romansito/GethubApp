@@ -10,17 +10,13 @@ import Foundation
 
 class User {
 	
-//	let avatarURL : String
-//	let url : String
-//	let login : String
-	let name: String
+	let login: String
 	let avatarURL : String
 	
-
-	
-	init(name : String, avatarURL: String) {
-	self.name = name
-	self.avatarURL = avatarURL
+	init(login : String, avatarURL: String) {
+		self.login = login
+		self.avatarURL = avatarURL
 	}
+	
 }
 

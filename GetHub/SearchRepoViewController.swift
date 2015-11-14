@@ -11,7 +11,6 @@ import UIKit
 class SearchRepoViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate {
 
 	@IBOutlet weak var tableView: UITableView!
-	
 	@IBOutlet weak var searchRepoBar: UISearchBar!
 	
 	var repositories = [Repository]() {
@@ -19,7 +18,6 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate,UITableVie
 			self.tableView.reloadData()
 		}
 	}
-	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +29,6 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate,UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-	
-	
 	
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

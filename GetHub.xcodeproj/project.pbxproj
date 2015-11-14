@@ -17,7 +17,6 @@
 		30294FE81BF14C9E006E6434 /* OAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30294FE71BF14C9E006E6434 /* OAuthClient.swift */; };
 		30294FEA1BF15265006E6434 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30294FE91BF15265006E6434 /* Constants.swift */; };
 		30F7CBB51BF29CA4009D5CD8 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBB41BF29CA4009D5CD8 /* GithubService.swift */; };
-		30F7CBB71BF2B066009D5CD8 /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBB61BF2B066009D5CD8 /* GetUser.swift */; };
 		30F7CBB91BF2B82F009D5CD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBB81BF2B82F009D5CD8 /* User.swift */; };
 		30F7CBBB1BF2B84A009D5CD8 /* Repository .swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBBA1BF2B84A009D5CD8 /* Repository .swift */; };
 		30F7CBBF1BF2DBF2009D5CD8 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBBE1BF2DBF2009D5CD8 /* OAuthViewController.swift */; };
@@ -25,9 +24,10 @@
 		30F7CBC31BF40622009D5CD8 /* CreateRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBC21BF40622009D5CD8 /* CreateRepo.swift */; };
 		30F7CBC51BF597EE009D5CD8 /* GitHub-Mark-Light-32px.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F7CBC41BF597EE009D5CD8 /* GitHub-Mark-Light-32px.png */; };
 		30F7CBC71BF59816009D5CD8 /* GitHub-Mark-32px.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F7CBC61BF59816009D5CD8 /* GitHub-Mark-32px.png */; };
-		30F7CBC91BF64BE4009D5CD8 /* GetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBC81BF64BE4009D5CD8 /* GetRepository.swift */; };
 		30F7CBCD1BF69B0E009D5CD8 /* SearchRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBCC1BF69B0E009D5CD8 /* SearchRepoViewController.swift */; };
 		30F7CBD31BF6C025009D5CD8 /* FLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBD21BF6C025009D5CD8 /* FLO.swift */; };
+		30F7CBD51BF6DB41009D5CD8 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBD41BF6DB41009D5CD8 /* SearchUserViewController.swift */; };
+		30F7CBD91BF6E5CB009D5CD8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBD81BF6E5CB009D5CD8 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		30294FE71BF14C9E006E6434 /* OAuthClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthClient.swift; sourceTree = "<group>"; };
 		30294FE91BF15265006E6434 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		30F7CBB41BF29CA4009D5CD8 /* GithubService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
-		30F7CBB61BF2B066009D5CD8 /* GetUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
 		30F7CBB81BF2B82F009D5CD8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		30F7CBBA1BF2B84A009D5CD8 /* Repository .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Repository .swift"; sourceTree = "<group>"; };
 		30F7CBBE1BF2DBF2009D5CD8 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
@@ -72,9 +71,10 @@
 		30F7CBC21BF40622009D5CD8 /* CreateRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRepo.swift; sourceTree = "<group>"; };
 		30F7CBC41BF597EE009D5CD8 /* GitHub-Mark-Light-32px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GitHub-Mark-Light-32px.png"; sourceTree = "<group>"; };
 		30F7CBC61BF59816009D5CD8 /* GitHub-Mark-32px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GitHub-Mark-32px.png"; sourceTree = "<group>"; };
-		30F7CBC81BF64BE4009D5CD8 /* GetRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRepository.swift; sourceTree = "<group>"; };
 		30F7CBCC1BF69B0E009D5CD8 /* SearchRepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepoViewController.swift; sourceTree = "<group>"; };
 		30F7CBD21BF6C025009D5CD8 /* FLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLO.swift; sourceTree = "<group>"; };
+		30F7CBD41BF6DB41009D5CD8 /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
+		30F7CBD81BF6E5CB009D5CD8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,14 +159,15 @@
 		30294FE41BF146C0006E6434 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				30F7CBD81BF6E5CB009D5CD8 /* CollectionViewCell.swift */,
+				30F7CBD41BF6DB41009D5CD8 /* SearchUserViewController.swift */,
+				30F7CBCC1BF69B0E009D5CD8 /* SearchRepoViewController.swift */,
 				30294FE71BF14C9E006E6434 /* OAuthClient.swift */,
 				30294FE91BF15265006E6434 /* Constants.swift */,
-				30F7CBB61BF2B066009D5CD8 /* GetUser.swift */,
-				30F7CBB81BF2B82F009D5CD8 /* User.swift */,
 				30F7CBBA1BF2B84A009D5CD8 /* Repository .swift */,
 				30F7CBC01BF314DA009D5CD8 /* KeychainService.swift */,
 				30F7CBC21BF40622009D5CD8 /* CreateRepo.swift */,
-				30F7CBC81BF64BE4009D5CD8 /* GetRepository.swift */,
+				30F7CBB81BF2B82F009D5CD8 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -186,7 +187,6 @@
 				30294FB61BF146AF006E6434 /* AppDelegate.swift */,
 				30294FB81BF146AF006E6434 /* HomeViewController.swift */,
 				30F7CBBE1BF2DBF2009D5CD8 /* OAuthViewController.swift */,
-				30F7CBCC1BF69B0E009D5CD8 /* SearchRepoViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -329,16 +329,16 @@
 			files = (
 				30294FE81BF14C9E006E6434 /* OAuthClient.swift in Sources */,
 				30F7CBBF1BF2DBF2009D5CD8 /* OAuthViewController.swift in Sources */,
-				30F7CBB71BF2B066009D5CD8 /* GetUser.swift in Sources */,
 				30F7CBD31BF6C025009D5CD8 /* FLO.swift in Sources */,
 				30F7CBC11BF314DA009D5CD8 /* KeychainService.swift in Sources */,
 				30F7CBB91BF2B82F009D5CD8 /* User.swift in Sources */,
+				30F7CBD91BF6E5CB009D5CD8 /* CollectionViewCell.swift in Sources */,
 				30294FB91BF146AF006E6434 /* HomeViewController.swift in Sources */,
+				30F7CBD51BF6DB41009D5CD8 /* SearchUserViewController.swift in Sources */,
 				30F7CBBB1BF2B84A009D5CD8 /* Repository .swift in Sources */,
 				30F7CBCD1BF69B0E009D5CD8 /* SearchRepoViewController.swift in Sources */,
 				30294FB71BF146AF006E6434 /* AppDelegate.swift in Sources */,
 				30F7CBB51BF29CA4009D5CD8 /* GithubService.swift in Sources */,
-				30F7CBC91BF64BE4009D5CD8 /* GetRepository.swift in Sources */,
 				30F7CBC31BF40622009D5CD8 /* CreateRepo.swift in Sources */,
 				30294FEA1BF15265006E6434 /* Constants.swift in Sources */,
 			);

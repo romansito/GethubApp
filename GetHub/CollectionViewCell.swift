@@ -10,61 +10,31 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 	
-
 	
+	@IBOutlet weak var imageView: UIImageView!
 	
-		func update(searchTerm : String) {
+	var user : User! {
+		
+		didSet {
 			
-			if let token = OAuthClient.shared.token() {
+			NSOperationQueue().addOperationWithBlock { () -> Void in
 				
-				let url = NSURL(string: "https://api.github.com/search/users?access_token=\(token)&q=\(searchTerm)")!
-				
-				let request = NSMutableURLRequest(URL: url)
-				request.setValue("application/json", forHTTPHeaderField: "Accept")
-				
-				NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-					
-					if let error = error {
-						print(error)
-					}
-					
-					if let data = data {
-						
-						if let arraysOfRepoDictionaries = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [String : AnyObject] {
-							
-							if let items = arraysOfRepoDictionaries["items"] as? [[String : AnyObject]] {
-								var repositories = [Repository]()
-								
-								for eachRepository in items {
-									
-									let name = eachRepository["name"] as? String
-									let description = eachRepository["description"] as? String
-									let id = eachRepository["id"] as? Int
-									
-									
-									if let name = name, description = description, id = id {
-										let repo = Repository(name: name, description: description, id: id)
-										repositories.append(repo)
-									}
-								}
-								
-								// This is because NSURLSession comes back on a background q.
-								NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-									self.repositories = repositories
-								})
-							}
-						}
-					}
-					
-					}.resume()
+				if let imageUrl = NSURL(string: self.user.avatarURL) {
+					guard let imageData = NSData(contentsOfURL: imageUrl) else {return}
+					let image = UIImage(data: imageData)
+					NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+						self.imageView.image = image
+					})
+				}
 			}
+			
 		}
-		
-		
+	}
+	
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		self.imageView.image = nil
+	}
 
-		
-		
-	
-	
 	
 }

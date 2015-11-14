@@ -101,7 +101,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1858" y="41"/>
+            <point key="canvasLocation" x="324" y="351"/>
         </scene>
         <!--Search Repos-->
         <scene sceneID="Rd2-Ku-y7j">
@@ -165,7 +165,116 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fq7-zI-x7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1046" y="745"/>
+            <point key="canvasLocation" x="1012" y="351"/>
+        </scene>
+        <!--Search User-->
+        <scene sceneID="35P-Wz-yVh">
+            <objects>
+                <viewController id="WI0-vg-OK9" customClass="SearchUserViewController" customModule="GetHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N5M-h7-ffP"/>
+                        <viewControllerLayoutGuide type="bottom" id="R31-5g-NoZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AwQ-1y-V2g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ts3-3O-DRp">
+                                <rect key="frame" x="0.0" y="72" width="600" height="479"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8AH-0L-ce2">
+                                    <size key="itemSize" width="120" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="6PK-O3-466" customClass="CollectionViewCell" customModule="GetHub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="cell" translatesAutoresizingMaskIntoConstraints="NO" id="OpA-y5-y4z">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="OpA-y5-y4z" firstAttribute="leading" secondItem="6PK-O3-466" secondAttribute="leading" id="1M4-TA-dWD"/>
+                                            <constraint firstAttribute="bottom" secondItem="OpA-y5-y4z" secondAttribute="bottom" id="5Gy-6X-rua"/>
+                                            <constraint firstItem="OpA-y5-y4z" firstAttribute="top" secondItem="6PK-O3-466" secondAttribute="top" id="EJU-Il-x9N"/>
+                                            <constraint firstAttribute="trailing" secondItem="OpA-y5-y4z" secondAttribute="trailing" id="pXB-0V-Vrj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="OpA-y5-y4z" id="9cm-3j-TwU"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="WI0-vg-OK9" id="Mc1-Kq-FAg"/>
+                                    <outlet property="delegate" destination="WI0-vg-OK9" id="BsG-qH-WJf"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7r6-IM-ciT">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <animations/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Ts3-3O-DRp" secondAttribute="bottom" id="Bvi-P7-4Fg"/>
+                            <constraint firstItem="Ts3-3O-DRp" firstAttribute="leading" secondItem="AwQ-1y-V2g" secondAttribute="leading" id="Ev0-fR-Hnx"/>
+                            <constraint firstItem="7r6-IM-ciT" firstAttribute="leading" secondItem="AwQ-1y-V2g" secondAttribute="leading" id="JKp-nB-1ty"/>
+                            <constraint firstItem="7r6-IM-ciT" firstAttribute="top" secondItem="N5M-h7-ffP" secondAttribute="bottom" constant="8" id="JWU-D9-W5y"/>
+                            <constraint firstItem="Ts3-3O-DRp" firstAttribute="leading" secondItem="AwQ-1y-V2g" secondAttribute="leading" id="Kcg-i2-Pxn"/>
+                            <constraint firstAttribute="trailing" secondItem="Ts3-3O-DRp" secondAttribute="trailing" id="QGC-Ff-iDF"/>
+                            <constraint firstItem="Ts3-3O-DRp" firstAttribute="top" secondItem="7r6-IM-ciT" secondAttribute="bottom" id="Rll-1T-7Nx"/>
+                            <constraint firstAttribute="trailing" secondItem="Ts3-3O-DRp" secondAttribute="trailing" id="S4O-ds-SPF"/>
+                            <constraint firstItem="Ts3-3O-DRp" firstAttribute="leading" secondItem="AwQ-1y-V2g" secondAttribute="leading" id="Woi-4m-Vbq"/>
+                            <constraint firstAttribute="bottom" secondItem="Ts3-3O-DRp" secondAttribute="bottom" id="Xlm-r3-5DV"/>
+                            <constraint firstAttribute="trailing" secondItem="7r6-IM-ciT" secondAttribute="trailing" id="ZhJ-y7-2dg"/>
+                            <constraint firstItem="Ts3-3O-DRp" firstAttribute="leading" secondItem="AwQ-1y-V2g" secondAttribute="leading" id="kD7-qC-ILA"/>
+                            <constraint firstAttribute="trailing" secondItem="Ts3-3O-DRp" secondAttribute="trailing" id="kVI-hb-vjQ"/>
+                            <constraint firstItem="Ts3-3O-DRp" firstAttribute="top" secondItem="7r6-IM-ciT" secondAttribute="bottom" id="nZF-ig-101"/>
+                            <constraint firstAttribute="trailing" secondItem="Ts3-3O-DRp" secondAttribute="trailing" id="ucz-R2-UbP"/>
+                            <constraint firstAttribute="bottom" secondItem="Ts3-3O-DRp" secondAttribute="bottom" id="wbs-MR-x4j"/>
+                            <constraint firstItem="R31-5g-NoZ" firstAttribute="top" secondItem="Ts3-3O-DRp" secondAttribute="bottom" id="wlt-a3-FSp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Bvi-P7-4Fg"/>
+                                <exclude reference="Ev0-fR-Hnx"/>
+                                <exclude reference="QGC-Ff-iDF"/>
+                                <exclude reference="Rll-1T-7Nx"/>
+                                <exclude reference="Woi-4m-Vbq"/>
+                                <exclude reference="Xlm-r3-5DV"/>
+                                <exclude reference="kD7-qC-ILA"/>
+                                <exclude reference="kVI-hb-vjQ"/>
+                                <exclude reference="ucz-R2-UbP"/>
+                                <exclude reference="wbs-MR-x4j"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search User" id="6i8-Ks-HCn"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Ts3-3O-DRp" id="NcH-NX-063"/>
+                        <outlet property="searchUserBar" destination="7r6-IM-ciT" id="NOu-46-QYB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMx-lK-Ruo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1689" y="351"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Evh-YB-Wnl">
@@ -180,11 +289,12 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="TNA-XJ-SiM"/>
                         <segue destination="kvR-sC-ux6" kind="relationship" relationship="viewControllers" id="Z4I-tG-buJ"/>
+                        <segue destination="WI0-vg-OK9" kind="relationship" relationship="viewControllers" id="786-rp-dPB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hP-gj-1pP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1046" y="41"/>
+            <point key="canvasLocation" x="1012" y="-376"/>
         </scene>
     </scenes>
     <resources>
