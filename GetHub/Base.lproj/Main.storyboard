@@ -216,6 +216,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="OpA-y5-y4z" id="9cm-3j-TwU"/>
+                                            <segue destination="9aK-of-WeF" kind="show" identifier="userDetailSegue" id="Fud-o2-4jk"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -278,6 +279,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMx-lK-Ruo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1689" y="351"/>
+        </scene>
+        <!--User Detail View Controller-->
+        <scene sceneID="oNb-A2-hjW">
+            <objects>
+                <viewController id="9aK-of-WeF" customClass="UserDetailViewController" customModule="GetHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZGh-Tn-cqs"/>
+                        <viewControllerLayoutGuide type="bottom" id="1i2-Tt-7HU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="17N-Oy-ylP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ab6-wG-nNG">
+                                <rect key="frame" x="12" y="28" width="137" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Search More Users">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backbutton:" destination="9aK-of-WeF" eventType="touchUpInside" id="Ze8-ci-qmz"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rFG-57-6Iv">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="gFA-Gj-YYz"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfN-Ha-knJ">
+                                <rect key="frame" x="232" y="424" width="136" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rFG-57-6Iv" firstAttribute="centerY" secondItem="17N-Oy-ylP" secondAttribute="centerY" id="99b-9u-mFi"/>
+                            <constraint firstItem="JfN-Ha-knJ" firstAttribute="leading" secondItem="17N-Oy-ylP" secondAttribute="leading" constant="232" id="H9S-Wo-msA"/>
+                            <constraint firstItem="JfN-Ha-knJ" firstAttribute="top" secondItem="rFG-57-6Iv" secondAttribute="bottom" constant="60" id="Mqh-Lp-cTQ"/>
+                            <constraint firstItem="1i2-Tt-7HU" firstAttribute="top" secondItem="JfN-Ha-knJ" secondAttribute="bottom" constant="106" id="Q3j-3u-EJP"/>
+                            <constraint firstItem="rFG-57-6Iv" firstAttribute="centerX" secondItem="17N-Oy-ylP" secondAttribute="centerX" id="TDC-Rq-RET"/>
+                            <constraint firstAttribute="trailing" secondItem="JfN-Ha-knJ" secondAttribute="trailing" constant="232" id="cpw-PR-exT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="userImage" destination="rFG-57-6Iv" id="gZy-N0-Mos"/>
+                        <outlet property="userNameLabel" destination="JfN-Ha-knJ" id="TM7-ka-M7e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YHm-Q6-xTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2360" y="351"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Evh-YB-Wnl">

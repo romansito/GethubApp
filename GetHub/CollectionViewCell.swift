@@ -17,6 +17,7 @@ class CollectionViewCell: UICollectionViewCell {
 		
 		didSet {
 			
+			self.layer.cornerRadius = 10.0
 			NSOperationQueue().addOperationWithBlock { () -> Void in
 				
 				if let imageUrl = NSURL(string: self.user.avatarURL) {

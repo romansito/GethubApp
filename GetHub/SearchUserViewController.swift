@@ -8,16 +8,22 @@
 
 import UIKit
 
-class SearchUserViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class SearchUserViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerTransitioningDelegate {
+	
+	
 	
 	@IBOutlet weak var searchUserBar: UISearchBar!
 	@IBOutlet weak var collectionView: UICollectionView!
 	
 	var users = [User]() {
 		didSet {
+			
 			self.collectionView.reloadData()
 		}
 	}
+	
+	
+	let customTransition = CustomTransition(duratioin: 2.0)
 	
 	class func identifier() -> String {
 		return "SearchUserViewController"
@@ -25,61 +31,9 @@ class SearchUserViewController: UIViewController, UISearchBarDelegate, UICollect
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.collectionView.collectionViewLayout = FLO(colums: 3)
 	}
 	
-//	func update(searchTerm: String) {
-//		
-//		if let token = OAuthClient.shared.token() {
-//			
-//			let url = NSURL(string: "https://api.github.com/search/users?access_token=\(token)&q=\(searchTerm)")!
-//			
-//			let request = NSMutableURLRequest(URL: url)
-//			request.setValue("application/json", forHTTPHeaderField: "Accept")
-//			
-//			NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-//				
-//				if let error = error {
-//					print(error)
-//				}
-//				
-//				if let data = data {
-//					
-//					if let json = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [String : AnyObject] {
-//						
-//						if let items = json["items"] as? [[String : AnyObject]] {
-//		
-//							var users = [User]()
-//							
-//							for item in items {
-//								
-//								let name = item["login"] as? String
-//								let avatarURL = item["avatar_url"] as? String
-//								
-//								if let name = name, avatarURL = avatarURL {
-//									
-//									users.append(User(name: name, avatarURL: avatarURL))
-//									
-//								}
-//							}
-//							
-//							NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-//								self.users = users
-//							})
-//							
-//						}
-//						
-//					}
-//					
-//				}
-//				
-//				}.resume()
-//		}
-//	}
-
-	
-	
-	
-
 	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
 		let searchTerm = searchUserBar.text
 		if let searchTerm = searchTerm {
@@ -134,8 +88,6 @@ class SearchUserViewController: UIViewController, UISearchBarDelegate, UICollect
 									
 									users.append(User(login: login, avatarURL: avatarURL))
 									
-//									let user = User(login: login, avatarURL: avatarURL)
-//									users.append(user)
 								}
 							}
 							
@@ -152,8 +104,47 @@ class SearchUserViewController: UIViewController, UISearchBarDelegate, UICollect
 			}
 
 		}
-
+	
+	
+	func collectionView(collection: UICollectionView, selectedItemIndex: NSIndexPath)
+	{
+		self.performSegueWithIdentifier("userDetailSegue", sender: self)
 	}
+
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if segue.identifier == "userDetailSegue" {
+			if let cell = sender as? UICollectionViewCell, indexPath = collectionView.indexPathForCell(cell) {
+				guard let userDetailViewController = segue.destinationViewController as? UserDetailViewController else {return}
+				userDetailViewController.transitioningDelegate = self
+				
+				let user = users[indexPath.item]
+				userDetailViewController.user = user
+			}
+		}
+	}
+	
+	
+	
+	
+	// MARK: Transition
+	
+	func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+		return self.customTransition
+	}
+	
+	
+
+
+
+
+
+}
+
+
+
+
+
 
 
 

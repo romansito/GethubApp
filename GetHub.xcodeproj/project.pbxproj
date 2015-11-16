@@ -28,6 +28,8 @@
 		30F7CBD31BF6C025009D5CD8 /* FLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBD21BF6C025009D5CD8 /* FLO.swift */; };
 		30F7CBD51BF6DB41009D5CD8 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBD41BF6DB41009D5CD8 /* SearchUserViewController.swift */; };
 		30F7CBD91BF6E5CB009D5CD8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBD81BF6E5CB009D5CD8 /* CollectionViewCell.swift */; };
+		30F7CBDF1BF812A1009D5CD8 /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBDE1BF812A1009D5CD8 /* CustomTransition.swift */; };
+		30F7CBE11BF813AA009D5CD8 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7CBE01BF813AA009D5CD8 /* UserDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		30F7CBD21BF6C025009D5CD8 /* FLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLO.swift; sourceTree = "<group>"; };
 		30F7CBD41BF6DB41009D5CD8 /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 		30F7CBD81BF6E5CB009D5CD8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		30F7CBDE1BF812A1009D5CD8 /* CustomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
+		30F7CBE01BF813AA009D5CD8 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +137,6 @@
 				30F7CBC41BF597EE009D5CD8 /* GitHub-Mark-Light-32px.png */,
 				30294FBF1BF146AF006E6434 /* LaunchScreen.storyboard */,
 				30294FC21BF146AF006E6434 /* Info.plist */,
-				30F7CBB41BF29CA4009D5CD8 /* GithubService.swift */,
 			);
 			path = GetHub;
 			sourceTree = "<group>";
@@ -168,6 +171,9 @@
 				30F7CBC01BF314DA009D5CD8 /* KeychainService.swift */,
 				30F7CBC21BF40622009D5CD8 /* CreateRepo.swift */,
 				30F7CBB81BF2B82F009D5CD8 /* User.swift */,
+				30F7CBDE1BF812A1009D5CD8 /* CustomTransition.swift */,
+				30F7CBE01BF813AA009D5CD8 /* UserDetailViewController.swift */,
+				30F7CBB41BF29CA4009D5CD8 /* GithubService.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -334,8 +340,10 @@
 				30F7CBB91BF2B82F009D5CD8 /* User.swift in Sources */,
 				30F7CBD91BF6E5CB009D5CD8 /* CollectionViewCell.swift in Sources */,
 				30294FB91BF146AF006E6434 /* HomeViewController.swift in Sources */,
+				30F7CBDF1BF812A1009D5CD8 /* CustomTransition.swift in Sources */,
 				30F7CBD51BF6DB41009D5CD8 /* SearchUserViewController.swift in Sources */,
 				30F7CBBB1BF2B84A009D5CD8 /* Repository .swift in Sources */,
+				30F7CBE11BF813AA009D5CD8 /* UserDetailViewController.swift in Sources */,
 				30F7CBCD1BF69B0E009D5CD8 /* SearchRepoViewController.swift in Sources */,
 				30294FB71BF146AF006E6434 /* AppDelegate.swift in Sources */,
 				30F7CBB51BF29CA4009D5CD8 /* GithubService.swift in Sources */,

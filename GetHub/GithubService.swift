@@ -38,4 +38,42 @@ class GithubService {
 			}).resume()
 		}
 	}
+	
+	class func getUser(completion: (user: User) -> ())  {
+		
+		if let token = OAuthClient.shared.token() {
+			print(token)
+			guard let baseURL = NSURL(string: "https://api.github.com/user") else {return}
+			let request = NSMutableURLRequest(URL: baseURL)
+			request.setValue("application/json", forHTTPHeaderField: "Accept")
+			request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+			
+			
+			NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+				if let error = error {
+					print(error)
+				}
+				if let response = response as? NSHTTPURLResponse {
+					print(response.statusCode)
+					if response.statusCode == 200 {
+						if let data = data {
+//							NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+//								if let user = User.users(data) {
+//									completion(user: user)
+//								}
+//							})
+							
+						}
+					}
+				}
+				
+				
+				}.resume()
+		}
+	}
+	
+	
+	
+	
+	
 }
